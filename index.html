@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation Form</title>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function showPosition(position) {
+            document.getElementById("latitude").value = position.coords.latitude;
+            document.getElementById("longitude").value = position.coords.longitude;
+        }
+    </script>
+</head>
+<body onload="getLocation()">
+    <h1>Submit Your Geolocation</h1>
+    <form action="https://api.airtable.com/v0/appe3s1L3r9dthSo0/Geolocation test method="POST">
+        <input type="hidden" name="api_key" value=patrg32Paz372ih4Y.ea4cc5824d622093f4d96a078d4e0766959b09b0cc9c3db15b93adf6013612f3>
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" name="fields[Latitude]" readonly><br><br>
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" name="fields[Longitude]" readonly><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
